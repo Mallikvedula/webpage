@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Insurance - Capgemini Insurance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            color: #ff6b6b;
+            transform: translateY(-3px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-title h2 {
+            font-size: 2.8em;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .content-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            margin-bottom: 60px;
+        }
+
+        .content-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 16px rgba(0, 212, 255, 0.2);
+        }
+
+        .content-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .content-text h3 {
+            font-size: 2.2em;
+            color: #66ff00;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .content-text p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #b0b0b0;
+            margin-bottom: 20px;
+        }
+
+        .features-list {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .features-list li {
+            font-size: 1.05em;
+            color: #b0b0b0;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .features-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #00d4ff;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, #66ff00 0%, #52cc00 100%);
+            color: #0f3460;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(102, 255, 0, 0.3);
+        }
+
+        .back-button {
+            background: linear-gradient(135deg, #00d4ff 0%, #0093b5 100%);
+            color: #0f3460;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            margin-top: 30px;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: #b0b0b0;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            border-top: 2px solid #00d4ff;
+        }
+
+        footer p {
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            .content-section {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .page-title h2 {
+                font-size: 2em;
+            }
+
+            .content-text h3 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="company-logo">
+                    <img src="images/capgemini.png" alt="Capgemini Logo">
+                </div>
+                <h1>CAPGEMINI INSURANCE</h1>
+            </div>
+            <nav class="nav">
+                <a href="insurance.html">Home</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="page-title">
+            <h2>Home Insurance</h2>
+            <p>Protect Your Home, Your Sanctuary - Complete Property Coverage</p>
+        </div>
+
+        <div class="content-section">
+            <div class="content-text">
+                <h3>Secure Your Home</h3>
+                <p>Your home is your most valuable asset. Our Home Insurance provides comprehensive coverage against fire, theft, natural disasters, and other unforeseen incidents. Rest assured knowing your home and belongings are protected with our reliable and affordable plans.</p>
+                
+                <h4 style="color: #00d4ff; margin-top: 30px; margin-bottom: 15px;">Coverage Includes:</h4>
+                <ul class="features-list">
+                    <li>Building structure protection</li>
+                    <li>Contents and personal belongings coverage</li>
+                    <li>Burglary and theft protection</li>
+                    <li>Natural calamity coverage (earthquakes, floods)</li>
+                    <li>Liability coverage for visitors</li>
+                    <li>Free home valuation and inspection</li>
+                </ul>
+
+                <button class="cta-button">Get Home Protection</button>
+                <button class="back-button" onclick="window.location.href='insurance.html'">← Back to Home</button>
+            </div>
+
+            <div class="content-image">
+                <img src="images/Home.png" alt="Home Insurance">
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Capgemini Insurance. All rights reserved. | Protecting Your Home</p>
+    </footer>
+</body>
+</html>

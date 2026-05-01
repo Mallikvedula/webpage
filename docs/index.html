@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capgemini Insurance - Your Trusted Insurance Partner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            padding: 20px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .company-logo {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .company-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #00d4ff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav a:hover {
+            color: #ff6b6b;
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 2.8em;
+            color: #00d4ff;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.3em;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .insurance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .insurance-card {
+            background: linear-gradient(135deg, #0f3460 0%, #1a1a2e 100%);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            border: 2px solid transparent;
+        }
+
+        .insurance-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 30px rgba(0, 212, 255, 0.3);
+            border-color: #00d4ff;
+        }
+
+        .card-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            background: #16213e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .insurance-card:hover .card-image img {
+            transform: scale(1.1);
+        }
+
+        .card-content {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .card-content h3 {
+            font-size: 1.8em;
+            color: #00d4ff;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-content p {
+            color: #b0b0b0;
+            font-size: 1.05em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card-btn {
+            background: linear-gradient(135deg, #00d4ff 0%, #0093b5 100%);
+            color: #0f3460;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            font-size: 1.05em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-btn:hover {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
+            color: #b0b0b0;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            border-top: 2px solid #00d4ff;
+        }
+
+        footer p {
+            font-size: 1.1em;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .hero h2 {
+                font-size: 2em;
+            }
+
+            .insurance-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .nav {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="company-logo">
+                    <img src="images/capgemini.png" alt="Capgemini Logo">
+                </div>
+                <h1>CAPGEMINI INSURANCE</h1>
+            </div>
+            <nav class="nav">
+                <a href="insurance.html">Home</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h2>Your Trust, Our Commitment</h2>
+        <p>Experience comprehensive insurance solutions tailored to protect what matters most. We offer three essential insurance products designed with your family's future in mind.</p>
+    </section>
+
+    <section class="container">
+        <div class="insurance-grid">
+            <!-- Auto Insurance Card -->
+            <div class="insurance-card" onclick="window.location.href='auto.html'">
+                <div class="card-image">
+                    <img src="images/Auto.png" alt="Auto Insurance">
+                </div>
+                <div class="card-content">
+                    <h3>Auto Insurance</h3>
+                    <p>Comprehensive coverage for your vehicle with protection against accidents, theft, and damage.</p>
+                    <button class="card-btn">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Health Insurance Card -->
+            <div class="insurance-card" onclick="window.location.href='health.html'">
+                <div class="card-image">
+                    <img src="images/Health.png" alt="Health Insurance">
+                </div>
+                <div class="card-content">
+                    <h3>Health Insurance</h3>
+                    <p>Complete healthcare coverage for you and your family with access to top medical facilities.</p>
+                    <button class="card-btn">Learn More</button>
+                </div>
+            </div>
+
+            <!-- Home Insurance Card -->
+            <div class="insurance-card" onclick="window.location.href='home.html'">
+                <div class="card-image">
+                    <img src="images/Home.png" alt="Home Insurance">
+                </div>
+                <div class="card-content">
+                    <h3>Home Insurance</h3>
+                    <p>Protect your home and belongings with our comprehensive home insurance plans.</p>
+                    <button class="card-btn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Capgemini Insurance. All rights reserved. | Your Trusted Partner in Protection</p>
+    </footer>
+</body>
+</html>
