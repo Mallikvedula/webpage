@@ -252,23 +252,9 @@
         g[e].t = 1 * new Date();
         g[e].c = es;
         ys = document.createElement('script'); ys.async = 1; ys.src = n; ys.charset = 'utf-8'; document.head.appendChild(ys);
-      })(window, 'Genesys', 'https://apps.usw2.pure.cloud/genesys-bootstrap/genesys.min.js', {
-        environment: 'prod-usw2',
-        deploymentId: 'f8a7fa3d-c3ba-4608-ac91-986438467df5'
-      });
-      
-      // Initialize Genesys Messenger when loaded
-      window.addEventListener('load', function() {
-        if (window.Genesys) {
-          console.log('Genesys Messenger loaded successfully');
-        } else {
-          console.log('Waiting for Genesys Messenger to load...');
-          setTimeout(function() {
-            if (window.Genesys) {
-              console.log('Genesys Messenger is now available');
-            }
-          }, 2000);
-        }
+      })(window, 'Genesys', 'https://apps.mypurecloud.ie/genesys-bootstrap/genesys.min.js', {
+        environment: 'prod-euw1',
+        deploymentId: 'c248e69e-8fd2-4120-ae8f-a34984656a8c'
       });
     </script>
 </head>
