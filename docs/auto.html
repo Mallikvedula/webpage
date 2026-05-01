@@ -250,6 +250,20 @@
         environment: 'prod-usw2',
         deploymentId: 'f8a7fa3d-c3ba-4608-ac91-986438467df5'
       });
+      
+      // Initialize Genesys Messenger when loaded
+      window.addEventListener('load', function() {
+        if (window.Genesys) {
+          console.log('Genesys Messenger loaded successfully');
+        } else {
+          console.log('Waiting for Genesys Messenger to load...');
+          setTimeout(function() {
+            if (window.Genesys) {
+              console.log('Genesys Messenger is now available');
+            }
+          }, 2000);
+        }
+      });
     </script>
 </head>
 <body>
